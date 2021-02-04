@@ -16,7 +16,12 @@ direction: ltr
 nav:
   home: /
   about: /about/
+  search: /search/
 
+search:
+  path: search.xml
+  field: post
+  content: true
 
 # Links to your social media accounts.
 # The keys should correspond to Fontawesome icon names
