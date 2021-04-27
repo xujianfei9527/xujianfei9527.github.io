@@ -36,7 +36,7 @@ social_links:
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
-tags_overview: true
+tags_overview: false
 
 # Customize the overview with the most recent blog posts on the index page.
 # Options:
@@ -44,8 +44,8 @@ tags_overview: true
 #   - post_count: whether to show only the x most recent posts.
 #   - sort_updated: sort posts by last modification date instead of creation date.
 posts_overview:
-  show_all_posts: false
-  post_count: 5
+  show_all_posts: true
+  post_count: 10
   sort_updated: false
 
 # Customize the archive view.
@@ -119,7 +119,7 @@ favicon:
 colorscheme: white
 
 # Maximal width of the page in rem units.
-page_width: 55
+page_width: 50
 
 
 ##############################################################################
@@ -127,7 +127,7 @@ page_width: 55
 ##############################################################################
 
 # Enable or disable the RSS feed.
-rss: false
+rss: true
 
 # Turn your web pages into graph objects (see http://ogp.me).
 open_graph:
@@ -143,7 +143,7 @@ open_graph:
 
 # Fill in your Disqus Comments Shortname to enable Disqus comments.
 disqus:
-  enabled: false
+  enabled: true
   shortname: xujf
 
 # Fill in your Google Analytics tracking ID to enable Google Analytics.
