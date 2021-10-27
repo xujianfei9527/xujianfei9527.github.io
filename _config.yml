@@ -99,5 +99,5 @@ theme: cactus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:xujianfei9527/xujianfei9527.github.io.git
+  repo: https://github.com/xujianfei9527/xujianfei9527.github.io
   branch: master
