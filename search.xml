@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>2022</title>
+      <link href="2022/02/28/2022/"/>
+      <url>2022/02/28/2022/</url>
+      
+        <content type="html"><![CDATA[<h2 id="2022年"><a href="#2022年" class="headerlink" title="2022年"></a>2022年</h2><ul><li>多读书</li><li>写博客</li><li>要快乐</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用 kubeadm 创建 k8s 集群</title>
       <link href="2021/04/25/create-k8s-cluster-with-kubeadm/"/>
       <url>2021/04/25/create-k8s-cluster-with-kubeadm/</url>
