@@ -5,7 +5,6 @@
 # Link to a page that gives an overview of all your projects.
 # This can be an external link (e.g., to you GitHub profile) or to another
 # page within your website.
-projects_url: http://github.com/probberechts
 
 # Set the page direction to RTL or LTR. default is LTR. (if you set it 'rtl', the 'vazir' font will be loaded.)
 direction: ltr
@@ -16,27 +15,24 @@ direction: ltr
 nav:
   home: /
   about: /about/
-  search: /search/
+  articles: /archives/
 
-search:
-  path: search.xml
-  field: post
-  content: true
 
 # Links to your social media accounts.
-# The keys should correspond to Fontawesome icon names
+# The 'icon' keys should correspond to Fontawesome icon names
 # (see https://fontawesome.com/icons?d=gallery&s=brands);
 # only 'mail' is an exception.
+# You can optionally add a 'label' key to set the title attribute on the link. 
+# 'icon' value will be used as title when 'label' is missing.
 social_links:
-#  github: http://github.com/probberechts/cactus-dark
-#  twitter: /
-#  facebook: /
-#  linkedin: /
-  mail: mailto:xujianfeifly@163.com
+  -
+    icon: mail
+    link: xujianfei9527@gmail.com
+
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
-tags_overview: false
+tags_overview: true
 
 # Customize the overview with the most recent blog posts on the index page.
 # Options:
@@ -44,8 +40,8 @@ tags_overview: false
 #   - post_count: whether to show only the x most recent posts.
 #   - sort_updated: sort posts by last modification date instead of creation date.
 posts_overview:
-  show_all_posts: true
-  post_count: 10
+  show_all_posts: false
+  post_count: 5
   sort_updated: false
 
 # Customize the archive view.
@@ -63,10 +59,18 @@ post:
   show_updated: false
 
 # Customize the copyright years
-# # Note: if start_year/end_year not provided, will use current year.
+# Note: if start_year/end_year not provided, will use current year.
 copyright:
-  start_year: 2019
+  start_year: 2016
   end_year:
+
+# Customize the 404 page
+# Options:
+#   - enabled: whether to enable the 404 page (404.html).
+error_404:
+  enabled: true
+  title: "404 Page Not Found"
+  description: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
 
 
 ##############################################################################
@@ -82,7 +86,7 @@ copyright:
 #   - gravatar: whether to use your Gravatar as the logo
 #   - grayout: whether to enable a hover effect on the logo
 logo:
-  enabled: false
+  enabled: true
   width: 50
   height: 50
   url: /images/logo.png
@@ -116,10 +120,10 @@ favicon:
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
 # Alternatively, add your own custom color scheme to source/css/_colors.
-colorscheme: white
+colorscheme: dark
 
 # Maximal width of the page in rem units.
-page_width: 50
+page_width: 48
 
 
 ##############################################################################
@@ -127,7 +131,7 @@ page_width: 50
 ##############################################################################
 
 # Enable or disable the RSS feed.
-rss: true
+rss: false
 
 # Turn your web pages into graph objects (see http://ogp.me).
 open_graph:
@@ -141,10 +145,22 @@ open_graph:
 # Plugins
 ##############################################################################
 
+# Enable MathJax support for Latex
+mathjax:
+  enabled: false
+
 # Fill in your Disqus Comments Shortname to enable Disqus comments.
 disqus:
-  enabled: true
-  shortname: xujf
+  enabled: false
+  shortname: cactus-1
+
+# Fill in your Utterances data to enable Utterances comments
+utterances:
+  enabled: false
+  repo: owner/githubrepo
+  issue_term: pathname
+  label: Comment
+  theme: github-dark
 
 # Fill in your Google Analytics tracking ID to enable Google Analytics.
 google_analytics:
@@ -153,16 +169,33 @@ google_analytics:
 
 # Fill in your Baidu Analytics tracking ID to enable Baidu Analytics.
 baidu_analytics:
-  enabled: true
-  id: 9e3af248ffc71162616ff0fcd5fb275e
+  enabled: false
+  id: 2e6da3c375c8a87f5b664cea6d4cb29c
+
+# Fill in your Cloudflare Analytics tracking ID to enable Cloudflare Analytics.
+cloudflare_analytics:
+  enabled: false
+  id: 0dabb6e21848405483a237e6a7b6ed04
 
 # Fill in your Umami Analytics tracking ID to enable Umami Analytics.
 umami_analytics:
   enabled: false
   id: e77e68be-f6e4-4br3-9365-2b76b57cd571
   host: https://analytics.domain.com
+  script_name: umami.js
 
-# Fill in you Gravatar user id / email if you want to use your gravatar as the
+# Fill in you Gravatar email or hash if you want to use your gravatar as the
 # logo and/or favicons of you website.
+# To generate hash: `$ echo -n "name@email.com" | md5`.
 gravatar:
   email: name@email.com
+  hash: d41d8cd98f00b204e9800998ecf8427e
+
+# loads libraries and styles from CDN instead or relying on local files
+cdn:
+  enable: true
+  jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+  clipboard: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js
+  font_awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+  justified_gallery_css: https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css
+  justified_gallery_js: https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js
