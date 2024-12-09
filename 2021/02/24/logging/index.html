@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="日志的作用 调试 用户行为审计  Logging模块Python的日志功能由Logging模块提供。 简单使用简单例子 123import logginglogging.warning(&#39;Watch out!&#39;)  # will print a message to the consolelogging.info(&#39;I told you so&#39;)  # 不会输出，因">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="日志的作用 调试 用户行为审计  Logging模块Python的日志功能由Logging模块提供。 简单使用简单例子 123import logginglogging.warning(&amp;#x27;Watch out!&amp;#x27;)  # will print a message to the consolelogging.info(&amp;#x27;I told you so&amp;#x27;)  # 不会">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logging">
 <meta property="og:url" content="https://xujianfei9527.github.io/2021/02/24/logging/index.html">
 <meta property="og:site_name" content="Xujianfei的博客">
-<meta property="og:description" content="日志的作用 调试 用户行为审计  Logging模块Python的日志功能由Logging模块提供。 简单使用简单例子 123import logginglogging.warning(&#39;Watch out!&#39;)  # will print a message to the consolelogging.info(&#39;I told you so&#39;)  # 不会输出，因">
+<meta property="og:description" content="日志的作用 调试 用户行为审计  Logging模块Python的日志功能由Logging模块提供。 简单使用简单例子 123import logginglogging.warning(&amp;#x27;Watch out!&amp;#x27;)  # will print a message to the consolelogging.info(&amp;#x27;I told you so&amp;#x27;)  # 不会">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-24T02:29:34.000Z">
-<meta property="article:modified_time" content="2024-02-05T05:11:41.103Z">
+<meta property="article:modified_time" content="2024-12-09T12:02:43.909Z">
 <meta property="article:author" content="Xujianfei">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -38,52 +38,55 @@
     
     <!-- title -->
     <title>Logging</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
 
     <!-- persian styles -->
     
-      
-<link rel="stylesheet" href="/css/rtl.css">
-
-    
     <!-- rss -->
     
     
-      <link rel="alternate" href="/true" title="Xujianfei的博客" type="application/atom+xml" />
-    
-<meta name="generator" content="Hexo 5.3.0"></head>
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
-        
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
       </ul>
     </span>
     <br/>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/04/25/create-k8s-cluster-with-kubeadm/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2021/04/25/create-k8s-cluster-with-kubeadm/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2021/02/03/devops-roadmap/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2021/02/03/devops-roadmap/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
@@ -97,7 +100,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://xujianfei9527.github.io/2021/02/24/logging/&text=Logging"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://xujianfei9527.github.io/2021/02/24/logging/&is_video=false&description=Logging"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Logging&body=Check out this article: https://xujianfei9527.github.io/2021/02/24/logging/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Logging&body=Check out this article: https://xujianfei9527.github.io/2021/02/24/logging/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
@@ -107,32 +110,35 @@
 </ul>
 
     </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">日志的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">Logging模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E4%B8%80%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">深入一点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E4%B8%ADLogging%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">Django中Logging的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
-    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">日志的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">Logging模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E4%B8%80%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">深入一点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E4%B8%ADLogging%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">Django中Logging的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+      </div>
+    
   </span>
 </div>
 
     
-    <div class="content index py4">
+    <div class="content index py4 ">
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
-    <h1 class="posttitle" itemprop="name headline">
+    <h1 class="posttitle p-name" itemprop="name headline">
         Logging
     </h1>
 
 
 
     <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Xujianfei</span>
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Xujianfei</span>
       </span>
       
     <div class="postdate">
       
-        <time datetime="2021-02-24T02:29:34.000Z" itemprop="datePublished">2021-02-24</time>
+        <time datetime="2021-02-24T02:29:34.000Z" class="dt-published" itemprop="datePublished">2021-02-24</time>
         
       
     </div>
@@ -142,8 +148,8 @@
 
       
     <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Python/" rel="tag">Python</a>
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Python/" rel="tag">Python</a>
     </div>
 
 
@@ -151,24 +157,28 @@
   </header>
   
 
-  <div class="content" itemprop="articleBody">
+  <div class="content e-content" itemprop="articleBody">
     <h2 id="日志的作用"><a href="#日志的作用" class="headerlink" title="日志的作用"></a>日志的作用</h2><ul>
 <li>调试</li>
 <li>用户行为审计</li>
 </ul>
 <h2 id="Logging模块"><a href="#Logging模块" class="headerlink" title="Logging模块"></a>Logging模块</h2><p>Python的日志功能由Logging模块提供。</p>
 <h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>简单例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.warning(&#39;Watch out!&#39;)  # will print a message to the console</span><br><span class="line">logging.info(&#39;I told you so&#39;)  # 不会输出，因为默认的日志级别是&#96;WARNING&#96;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.warning(&#x27;Watch out!&#x27;)  # will print a message to the console</span><br><span class="line">logging.info(&#x27;I told you so&#x27;)  # 不会输出，因为默认的日志级别是`WARNING`</span><br></pre></td></tr></table></figure>
 <p>输出的内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING:root:Watch out!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING:root:Watch out!</span><br></pre></td></tr></table></figure>
+
 <p>打日志到文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.basicConfig(filename&#x3D;&#39;example.log&#39;,level&#x3D;logging.DEBUG)</span><br><span class="line">logging.debug(&#39;This message should go to the log file&#39;)</span><br><span class="line">logging.info(&#39;So should this&#39;)</span><br><span class="line">logging.warning(&#39;And this, too&#39;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.basicConfig(filename=&#x27;example.log&#x27;,level=logging.DEBUG)</span><br><span class="line">logging.debug(&#x27;This message should go to the log file&#x27;)</span><br><span class="line">logging.info(&#x27;So should this&#x27;)</span><br><span class="line">logging.warning(&#x27;And this, too&#x27;)</span><br></pre></td></tr></table></figure>
 <p>输出内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG:root:This message should go to the log file</span><br><span class="line">INFO:root:So should this</span><br><span class="line">WARNING:root:And this, too</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG:root:This message should go to the log file</span><br><span class="line">INFO:root:So should this</span><br><span class="line">WARNING:root:And this, too</span><br></pre></td></tr></table></figure>
+
 <p>日志的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(filename&#x3D;&#39;example.log&#39;, level&#x3D;logging.DEBUG)</span><br><span class="line"># 输出日志到文件，且日志级别为DEBUG(DEBUG级别以上的日志都会输出)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(filename=&#x27;example.log&#x27;, level=logging.DEBUG)</span><br><span class="line"># 输出日志到文件，且日志级别为DEBUG(DEBUG级别以上的日志都会输出)</span><br></pre></td></tr></table></figure>
+
 <p>更多配置参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">filename  Specifies that a FileHandler be created, using the specified</span><br><span class="line">          filename, rather than a StreamHandler.</span><br><span class="line">filemode  Specifies the mode to open the file, if filename is specified</span><br><span class="line">          (if filemode is unspecified, it defaults to &#39;a&#39;).</span><br><span class="line">format    Use the specified format string for the handler.</span><br><span class="line">datefmt   Use the specified date&#x2F;time format.</span><br><span class="line">style     If a format string is specified, use this to specify the</span><br><span class="line">          type of format string (possible values &#39;%&#39;, &#39;&#123;&#39;, &#39;$&#39;, for</span><br><span class="line">          %-formatting, :meth:&#96;str.format&#96; and :class:&#96;string.Template&#96;</span><br><span class="line">          - defaults to &#39;%&#39;).</span><br><span class="line">level     Set the root logger level to the specified level.</span><br><span class="line">stream    Use the specified stream to initialize the StreamHandler. Note</span><br><span class="line">          that this argument is incompatible with &#39;filename&#39; - if both</span><br><span class="line">          are present, &#39;stream&#39; is ignored.</span><br><span class="line">handlers  If specified, this should be an iterable of already created</span><br><span class="line">          handlers, which will be added to the root handler. Any handler</span><br><span class="line">          in the list which does not have a formatter assigned will be</span><br><span class="line">          assigned the formatter created in this function.</span><br><span class="line">force     If this keyword  is specified as true, any existing handlers</span><br><span class="line">          attached to the root logger are removed and closed, before</span><br><span class="line">          carrying out the configuration as specified by the other</span><br><span class="line">          arguments.</span><br><span class="line">encoding  If specified together with a filename, this encoding is passed to</span><br><span class="line">          the created FileHandler, causing it to be used when the file is</span><br><span class="line">          opened.</span><br><span class="line">errors    If specified together with a filename, this value is passed to the</span><br><span class="line">          created FileHandler, causing it to be used when the file is</span><br><span class="line">          opened in text mode. If not specified, the default value is</span><br><span class="line">          &#96;backslashreplace&#96;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">filename  Specifies that a FileHandler be created, using the specified</span><br><span class="line">          filename, rather than a StreamHandler.</span><br><span class="line">filemode  Specifies the mode to open the file, if filename is specified</span><br><span class="line">          (if filemode is unspecified, it defaults to &#x27;a&#x27;).</span><br><span class="line">format    Use the specified format string for the handler.</span><br><span class="line">datefmt   Use the specified date/time format.</span><br><span class="line">style     If a format string is specified, use this to specify the</span><br><span class="line">          type of format string (possible values &#x27;%&#x27;, &#x27;&#123;&#x27;, &#x27;$&#x27;, for</span><br><span class="line">          %-formatting, :meth:`str.format` and :class:`string.Template`</span><br><span class="line">          - defaults to &#x27;%&#x27;).</span><br><span class="line">level     Set the root logger level to the specified level.</span><br><span class="line">stream    Use the specified stream to initialize the StreamHandler. Note</span><br><span class="line">          that this argument is incompatible with &#x27;filename&#x27; - if both</span><br><span class="line">          are present, &#x27;stream&#x27; is ignored.</span><br><span class="line">handlers  If specified, this should be an iterable of already created</span><br><span class="line">          handlers, which will be added to the root handler. Any handler</span><br><span class="line">          in the list which does not have a formatter assigned will be</span><br><span class="line">          assigned the formatter created in this function.</span><br><span class="line">force     If this keyword  is specified as true, any existing handlers</span><br><span class="line">          attached to the root logger are removed and closed, before</span><br><span class="line">          carrying out the configuration as specified by the other</span><br><span class="line">          arguments.</span><br><span class="line">encoding  If specified together with a filename, this encoding is passed to</span><br><span class="line">          the created FileHandler, causing it to be used when the file is</span><br><span class="line">          opened.</span><br><span class="line">errors    If specified together with a filename, this value is passed to the</span><br><span class="line">          created FileHandler, causing it to be used when the file is</span><br><span class="line">          opened in text mode. If not specified, the default value is</span><br><span class="line">          `backslashreplace`.</span><br></pre></td></tr></table></figure>
+
 <h3 id="深入一点"><a href="#深入一点" class="headerlink" title="深入一点"></a>深入一点</h3><p>Logging 模块采用了模块化实现，包含4个主要的组件</p>
 <ul>
 <li>Logger 代码使用日志功能的入口</li>
@@ -183,23 +193,20 @@
 <li>使用<code>dictConfig()</code>从一个配置字段中读取</li>
 </ul>
 <p>这里演示通过代码方式创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># create logger</span><br><span class="line">logger &#x3D; logging.getLogger(&#39;simple_example&#39;)</span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"># create console handler and set level to debug</span><br><span class="line">ch &#x3D; logging.StreamHandler()</span><br><span class="line">ch.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"># create formatter</span><br><span class="line">formatter &#x3D; logging.Formatter(&#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;)</span><br><span class="line"></span><br><span class="line"># add formatter to ch</span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"># add ch to logger</span><br><span class="line">logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line"># &#39;application&#39; code</span><br><span class="line">logger.debug(&#39;debug message&#39;)</span><br><span class="line">logger.info(&#39;info message&#39;)</span><br><span class="line">logger.warn(&#39;warn message&#39;)</span><br><span class="line">logger.error(&#39;error message&#39;)</span><br><span class="line">logger.critical(&#39;critical message&#39;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># create logger</span><br><span class="line">logger = logging.getLogger(&#x27;simple_example&#x27;)</span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"># create console handler and set level to debug</span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line">ch.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"># create formatter</span><br><span class="line">formatter = logging.Formatter(&#x27;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#x27;)</span><br><span class="line"></span><br><span class="line"># add formatter to ch</span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"># add ch to logger</span><br><span class="line">logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line"># &#x27;application&#x27; code</span><br><span class="line">logger.debug(&#x27;debug message&#x27;)</span><br><span class="line">logger.info(&#x27;info message&#x27;)</span><br><span class="line">logger.warn(&#x27;warn message&#x27;)</span><br><span class="line">logger.error(&#x27;error message&#x27;)</span><br><span class="line">logger.critical(&#x27;critical message&#x27;)</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="Django中Logging的使用"><a href="#Django中Logging的使用" class="headerlink" title="Django中Logging的使用"></a>Django中Logging的使用</h2><p>Django中日志配置(配置字典方式)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">LOGGING &#x3D; &#123;</span><br><span class="line">    &#39;version&#39;: 1,</span><br><span class="line">    &#39;disable_existing_loggers&#39;: False,</span><br><span class="line">    &#39;formatters&#39;: &#123;</span><br><span class="line">        &#39;verbose&#39;: &#123;</span><br><span class="line">            &#39;format&#39;: &#39;%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#39;simple&#39;: &#123;</span><br><span class="line">            &#39;format&#39;: &#39;%(levelname)s %(message)s&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;handlers&#39;: &#123;</span><br><span class="line">        &#39;django_handler&#39;: &#123;</span><br><span class="line">            &#39;level&#39;: &#39;INFO&#39;,</span><br><span class="line">            &#39;class&#39;: &#39;logging.handlers.TimedRotatingFileHandler&#39;, # 这里配置了日志滚动</span><br><span class="line">            &#39;filename&#39;: &#39;error.log&#39;,</span><br><span class="line">            &#39;when&#39;: &#39;midnight&#39;,</span><br><span class="line">            &#39;interval&#39;: 1,</span><br><span class="line">            &#39;backupCount&#39;: 10,</span><br><span class="line">            &#39;formatter&#39;: &#39;verbose&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#39;task_handler&#39;: &#123;</span><br><span class="line">            &#39;level&#39;: &#39;INFO&#39;,</span><br><span class="line">            &#39;class&#39;: &#39;logging.FileHandler&#39;,</span><br><span class="line">            &#39;filename&#39;: &#39;info.log&#39;,</span><br><span class="line">            &#39;formatter&#39;: &#39;verbose&#39;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;loggers&#39;: &#123;</span><br><span class="line">        &#39;django&#39;: &#123; # Django中的默认logger</span><br><span class="line">            &#39;handlers&#39;: [&#39;django_handler&#39;],</span><br><span class="line">            &#39;propagate&#39;: True,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#39;task&#39;: &#123;</span><br><span class="line">            &#39;handlers&#39;: [&#39;task_handler&#39;],</span><br><span class="line">            &#39;propagate&#39;: True,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">LOGGING = &#123;</span><br><span class="line">    &#x27;version&#x27;: 1,</span><br><span class="line">    &#x27;disable_existing_loggers&#x27;: False,</span><br><span class="line">    &#x27;formatters&#x27;: &#123;</span><br><span class="line">        &#x27;verbose&#x27;: &#123;</span><br><span class="line">            &#x27;format&#x27;: &#x27;%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;simple&#x27;: &#123;</span><br><span class="line">            &#x27;format&#x27;: &#x27;%(levelname)s %(message)s&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x27;handlers&#x27;: &#123;</span><br><span class="line">        &#x27;django_handler&#x27;: &#123;</span><br><span class="line">            &#x27;level&#x27;: &#x27;INFO&#x27;,</span><br><span class="line">            &#x27;class&#x27;: &#x27;logging.handlers.TimedRotatingFileHandler&#x27;, # 这里配置了日志滚动</span><br><span class="line">            &#x27;filename&#x27;: &#x27;error.log&#x27;,</span><br><span class="line">            &#x27;when&#x27;: &#x27;midnight&#x27;,</span><br><span class="line">            &#x27;interval&#x27;: 1,</span><br><span class="line">            &#x27;backupCount&#x27;: 10,</span><br><span class="line">            &#x27;formatter&#x27;: &#x27;verbose&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;task_handler&#x27;: &#123;</span><br><span class="line">            &#x27;level&#x27;: &#x27;INFO&#x27;,</span><br><span class="line">            &#x27;class&#x27;: &#x27;logging.FileHandler&#x27;,</span><br><span class="line">            &#x27;filename&#x27;: &#x27;info.log&#x27;,</span><br><span class="line">            &#x27;formatter&#x27;: &#x27;verbose&#x27;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x27;loggers&#x27;: &#123;</span><br><span class="line">        &#x27;django&#x27;: &#123; # Django中的默认logger</span><br><span class="line">            &#x27;handlers&#x27;: [&#x27;django_handler&#x27;],</span><br><span class="line">            &#x27;propagate&#x27;: True,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;task&#x27;: &#123;</span><br><span class="line">            &#x27;handlers&#x27;: [&#x27;task_handler&#x27;],</span><br><span class="line">            &#x27;propagate&#x27;: True,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>在代码中调用日志模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">imporg logging</span><br><span class="line"></span><br><span class="line">logger &#x3D; logging.getLogger(&#39;task&#39;)</span><br><span class="line">logger.info(&quot;task started.&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">imporg logging</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(&#x27;task&#x27;)</span><br><span class="line">logger.info(&quot;task started.&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://docs.python.org/3.6/howto/logging.html#logging-basic-tutorial">logging-basic-tutorial</a><br><a target="_blank" rel="noopener" href="https://docs.python-guide.org/writing/logging/">Guide to Python - Logging</a></p>
 
   </div>
 </article>
-
-    <div class="blog-post-comments">
-        <div id="disqus_thread">
-            <noscript>Please enable JavaScript to view the comments.</noscript>
-        </div>
-    </div>
 
 
 
@@ -209,19 +216,22 @@
 
     <div id="nav-footer" style="display: none">
       <ul>
-         
+        
           <li><a href="/">Home</a></li>
-         
+        
           <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
         
       </ul>
     </div>
 
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">日志的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">Logging模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E4%B8%80%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">深入一点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E4%B8%ADLogging%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">Django中Logging的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
-    </div>
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">日志的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">Logging模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E4%B8%80%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">深入一点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E4%B8%ADLogging%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">Django中Logging的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+      </div>
+    
 
     <div id="share-footer" style="display: none">
       <ul>
@@ -229,7 +239,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://xujianfei9527.github.io/2021/02/24/logging/&text=Logging"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://xujianfei9527.github.io/2021/02/24/logging/&is_video=false&description=Logging"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Logging&body=Check out this article: https://xujianfei9527.github.io/2021/02/24/logging/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Logging&body=Check out this article: https://xujianfei9527.github.io/2021/02/24/logging/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://xujianfei9527.github.io/2021/02/24/logging/&title=Logging"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
@@ -241,10 +251,12 @@
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -256,19 +268,19 @@
     Copyright &copy;
     
     
-    2019-2024
+    2016-2024
     Xujianfei
   </div>
   <div class="footer-right">
     <nav>
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
-        
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
       </ul>
     </nav>
   </div>
@@ -277,30 +289,29 @@
     </div>
     <!-- styles -->
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
 
 
     <!-- jquery -->
 
-<script src="/lib/jquery/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
 
 <!-- clipboard -->
 
   
-<script src="/lib/clipboard/clipboard.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
     // mount it!
     $(".highlight table").before(btn);
     var clip = new ClipboardJS('.btn-copy', {
@@ -320,36 +331,13 @@
 
 <!-- search -->
 
-<!-- Google Analytics -->
-
 <!-- Baidu Analytics -->
 
-  <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?9e3af248ffc71162616ff0fcd5fb275e";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-
-<!-- Umami Analytics -->
+<!-- Cloudflare Analytics -->
 
 <!-- Disqus Comments -->
 
-    <script type="text/javascript">
-        var disqus_shortname = 'xujf';
-
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
-    </script>
-
+<!-- utterances Comments -->
 
 </body>
 </html>

@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Celery简介Celery是一个简单的，灵活的，可靠的分布式异步任务系统。Celery通过消息列队进行任务调度，支持的broker有rabbitmq、redis等。 安装1pip install Celery 集成到Django项目目录 12345678910111213141516171819├── config│   ├── celery.py│   ├── environment.py│">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Celery简介Celery是一个简单的，灵活的，可靠的分布式异步任务系统。Celery通过消息列队进行任务调度，支持的broker有rabbitmq、redis等。 安装1pip install Celery  集成到Django项目目录 12345678910111213141516171819├── config│   ├── celery.py│   ├── environment.py│">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Celery routing tasks">
 <meta property="og:url" content="https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/index.html">
 <meta property="og:site_name" content="Xujianfei的博客">
-<meta property="og:description" content="Celery简介Celery是一个简单的，灵活的，可靠的分布式异步任务系统。Celery通过消息列队进行任务调度，支持的broker有rabbitmq、redis等。 安装1pip install Celery 集成到Django项目目录 12345678910111213141516171819├── config│   ├── celery.py│   ├── environment.py│">
+<meta property="og:description" content="Celery简介Celery是一个简单的，灵活的，可靠的分布式异步任务系统。Celery通过消息列队进行任务调度，支持的broker有rabbitmq、redis等。 安装1pip install Celery  集成到Django项目目录 12345678910111213141516171819├── config│   ├── celery.py│   ├── environment.py│">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-20T02:48:37.000Z">
-<meta property="article:modified_time" content="2024-02-05T05:11:41.099Z">
+<meta property="article:modified_time" content="2024-12-09T12:02:43.905Z">
 <meta property="article:author" content="Xujianfei">
 <meta property="article:tag" content="Django">
 <meta property="article:tag" content="Celery">
@@ -40,52 +40,55 @@
     
     <!-- title -->
     <title>Celery routing tasks</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
 
     <!-- persian styles -->
     
-      
-<link rel="stylesheet" href="/css/rtl.css">
-
-    
     <!-- rss -->
     
     
-      <link rel="alternate" href="/true" title="Xujianfei的博客" type="application/atom+xml" />
-    
-<meta name="generator" content="Hexo 5.3.0"></head>
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
-        
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
       </ul>
     </span>
     <br/>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/02/03/devops-roadmap/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2021/02/03/devops-roadmap/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/04/18/changes-20200418/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2020/04/18/changes-20200418/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
@@ -99,7 +102,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&text=Celery routing tasks"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&is_video=false&description=Celery routing tasks"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Celery routing tasks&body=Check out this article: https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Celery routing tasks&body=Check out this article: https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
@@ -109,32 +112,35 @@
 </ul>
 
     </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Celery%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Celery简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%88%B0Django"><span class="toc-number">1.2.</span> <span class="toc-text">集成到Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Celery-worker"><span class="toc-number">1.3.</span> <span class="toc-text">启动Celery worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">调用异步任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
-    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Celery%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Celery简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%88%B0Django"><span class="toc-number">1.2.</span> <span class="toc-text">集成到Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Celery-worker"><span class="toc-number">1.3.</span> <span class="toc-text">启动Celery worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">调用异步任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      </div>
+    
   </span>
 </div>
 
     
-    <div class="content index py4">
+    <div class="content index py4 ">
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
-    <h1 class="posttitle" itemprop="name headline">
+    <h1 class="posttitle p-name" itemprop="name headline">
         Celery routing tasks
     </h1>
 
 
 
     <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Xujianfei</span>
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Xujianfei</span>
       </span>
       
     <div class="postdate">
       
-        <time datetime="2020-11-20T02:48:37.000Z" itemprop="datePublished">2020-11-20</time>
+        <time datetime="2020-11-20T02:48:37.000Z" class="dt-published" itemprop="datePublished">2020-11-20</time>
         
       
     </div>
@@ -144,8 +150,8 @@
 
       
     <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Celery/" rel="tag">Celery</a>, <a class="tag-link-link" href="/tags/Django/" rel="tag">Django</a>, <a class="tag-link-link" href="/tags/Routing-Tasks/" rel="tag">Routing Tasks</a>
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Celery/" rel="tag">Celery</a>, <a class="p-category" href="/tags/Django/" rel="tag">Django</a>, <a class="p-category" href="/tags/Routing-Tasks/" rel="tag">Routing Tasks</a>
     </div>
 
 
@@ -153,39 +159,38 @@
   </header>
   
 
-  <div class="content" itemprop="articleBody">
+  <div class="content e-content" itemprop="articleBody">
     <h2 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h2><p>Celery是一个简单的，灵活的，可靠的分布式异步任务系统。Celery通过消息列队进行任务调度，支持的broker有rabbitmq、redis等。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Celery</span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Celery</span><br></pre></td></tr></table></figure>
+
 <h3 id="集成到Django"><a href="#集成到Django" class="headerlink" title="集成到Django"></a>集成到Django</h3><p>项目目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">├── config</span><br><span class="line">│   ├── celery.py</span><br><span class="line">│   ├── environment.py</span><br><span class="line">│   ├── environment.pyc</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── __pycache__</span><br><span class="line">│   ├── settings</span><br><span class="line">|   |   ├── base.py</span><br><span class="line">|   |   ├── __init__.py</span><br><span class="line">|   |   ├── local.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   └── wsgi.py</span><br><span class="line">├── db.sqlite3</span><br><span class="line">├── manage.py</span><br><span class="line">├── migrations</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── README.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">├── config</span><br><span class="line">│   ├── celery.py</span><br><span class="line">│   ├── environment.py</span><br><span class="line">│   ├── environment.pyc</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── __pycache__</span><br><span class="line">│   ├── settings</span><br><span class="line">|   |   ├── base.py</span><br><span class="line">|   |   ├── __init__.py</span><br><span class="line">|   |   ├── local.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   └── wsgi.py</span><br><span class="line">├── db.sqlite3</span><br><span class="line">├── manage.py</span><br><span class="line">├── migrations</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── README.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>在config目录下添加celery.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">from celery import Celery</span><br><span class="line"></span><br><span class="line">from .environment import SETTINGS_MODULE</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(&#39;DJANGO_SETTINGS_MODULE&#39;, SETTINGS_MODULE)</span><br><span class="line"></span><br><span class="line"># 初始化Celery实例</span><br><span class="line">app &#x3D; Celery(&#39;tasks&#39;)</span><br><span class="line"></span><br><span class="line"># 定义Celery配置方式,此处采用和Django配置集成的方式</span><br><span class="line">app.config_from_object(&#39;django.conf:settings&#39;, namespace&#x3D;&#39;CELERY&#39;)</span><br><span class="line"></span><br><span class="line"># 自动发现任务,每个app下tasks.py中定义的任务将会自动发现</span><br><span class="line">app.autodiscover_tasks()</span><br><span class="line"></span><br><span class="line"># 定义任务</span><br><span class="line">@app.task()</span><br><span class="line">def demo_task1():</span><br><span class="line">    print(&#39;demo_task1 started!&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.task()</span><br><span class="line">def demo_task2():</span><br><span class="line">    print(&#39;demo_task2 started!&#39;)</span><br><span class="line">    time.sleep(10)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">from celery import Celery</span><br><span class="line"></span><br><span class="line">from .environment import SETTINGS_MODULE</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(&#x27;DJANGO_SETTINGS_MODULE&#x27;, SETTINGS_MODULE)</span><br><span class="line"></span><br><span class="line"># 初始化Celery实例</span><br><span class="line">app = Celery(&#x27;tasks&#x27;)</span><br><span class="line"></span><br><span class="line"># 定义Celery配置方式,此处采用和Django配置集成的方式</span><br><span class="line">app.config_from_object(&#x27;django.conf:settings&#x27;, namespace=&#x27;CELERY&#x27;)</span><br><span class="line"></span><br><span class="line"># 自动发现任务,每个app下tasks.py中定义的任务将会自动发现</span><br><span class="line">app.autodiscover_tasks()</span><br><span class="line"></span><br><span class="line"># 定义任务</span><br><span class="line">@app.task()</span><br><span class="line">def demo_task1():</span><br><span class="line">    print(&#x27;demo_task1 started!&#x27;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.task()</span><br><span class="line">def demo_task2():</span><br><span class="line">    print(&#x27;demo_task2 started!&#x27;)</span><br><span class="line">    time.sleep(10)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>添加配置config/settings/local.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CELERY_BROKER_URL &#x3D; &#39;redis:&#x2F;&#x2F;127.0.0.1:6379&#x2F;7&#39;</span><br><span class="line">CELERY_ACCEPT_CONTENT &#x3D; [&#39;json&#39;]</span><br><span class="line">CELERY_RESULT_BACKEND &#x3D; &#39;redis:&#x2F;&#x2F;127.0.0.1:6379&#x2F;6&#39;</span><br><span class="line">CELERY_TASK_SERIALIZER &#x3D; &#39;json&#39;</span><br><span class="line">CELERY_MAX_TASKS_PER_CHILD &#x3D; 10</span><br></pre></td></tr></table></figure>
-<h3 id="启动Celery-worker"><a href="#启动Celery-worker" class="headerlink" title="启动Celery worker"></a>启动Celery worker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A config worker --concurrency&#x3D;2 -l info</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CELERY_BROKER_URL = &#x27;redis://127.0.0.1:6379/7&#x27;</span><br><span class="line">CELERY_ACCEPT_CONTENT = [&#x27;json&#x27;]</span><br><span class="line">CELERY_RESULT_BACKEND = &#x27;redis://127.0.0.1:6379/6&#x27;</span><br><span class="line">CELERY_TASK_SERIALIZER = &#x27;json&#x27;</span><br><span class="line">CELERY_MAX_TASKS_PER_CHILD = 10</span><br></pre></td></tr></table></figure>
+<h3 id="启动Celery-worker"><a href="#启动Celery-worker" class="headerlink" title="启动Celery worker"></a>启动Celery worker</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A config worker --concurrency=2 -l info</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>--concurrency</code>指定任务的并发数量，不指定自动设置为cpu的核数</p>
 </blockquote>
-<h3 id="调用异步任务"><a href="#调用异步任务" class="headerlink" title="调用异步任务"></a>调用异步任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from config.celery import demo_task1, demo_task2</span><br><span class="line"></span><br><span class="line">demo_task1.delay()</span><br></pre></td></tr></table></figure>
+<h3 id="调用异步任务"><a href="#调用异步任务" class="headerlink" title="调用异步任务"></a>调用异步任务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from config.celery import demo_task1, demo_task2</span><br><span class="line"></span><br><span class="line">demo_task1.delay()</span><br></pre></td></tr></table></figure>
+
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>以上的基础配置可以满足大部分的使用场景，但随着使用，遇到了以下问题：</p>
 <p>我的异步任务中有一类是占用计算资源比较多的(如构建)，这些任务需要根据服务器性能设置并发限制。另一类任务没有多少计算量，多数时间在等待IO。</p>
 <p>默认情况下，Celery在同一个队列中运行所有任务，高计算量的任务和IO型任务对并发的限制需求是不同的，如构建任务在4核机器上并发跑4个就比较极限了,但其它一些IO型任务在4核机器上并发100也没有问题，为了保证服务稳定，只能将任务并发设置为4。但其实IO型任务可以并发更多。</p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>Celery的<a target="_blank" rel="noopener" href="https://docs.celeryproject.org/en/stable/userguide/routing.html">route特性</a>可以解决此问题。通过启动多个worker指定不同的队列和并发限制，实现任务的分类执行。</p>
 <p>增加Celery配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CELERY_TASK_ROUTES &#x3D; &#123;</span><br><span class="line">    &#39;config.celery.demo_task1&#39;: &#123;&#39;queue&#39;: &#39;io_q&#39;&#125;,</span><br><span class="line">    &#39;config.celery.demo_task2&#39;: &#123;&#39;queue&#39;: &#39;cpu_q&#39;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CELERY_TASK_ROUTES = &#123;</span><br><span class="line">    &#x27;config.celery.demo_task1&#x27;: &#123;&#x27;queue&#x27;: &#x27;io_q&#x27;&#125;,</span><br><span class="line">    &#x27;config.celery.demo_task2&#x27;: &#123;&#x27;queue&#x27;: &#x27;cpu_q&#x27;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>可以在配置中指定任务的队列，可以在程序中调用任务时指定队列。</p>
 </blockquote>
 <p>启动多个worker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">celery -A config worker -Q io_q -l info --concurrency&#x3D;100 -n w1@127.0.0.1</span><br><span class="line">celery -A config worker -Q cpu_q -l info --concurrency&#x3D;4 -n w2@127.0.0.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">celery -A config worker -Q io_q -l info --concurrency=100 -n w1@127.0.0.1</span><br><span class="line">celery -A config worker -Q cpu_q -l info --concurrency=4 -n w2@127.0.0.1</span><br></pre></td></tr></table></figure>
+
   </div>
 </article>
-
-    <div class="blog-post-comments">
-        <div id="disqus_thread">
-            <noscript>Please enable JavaScript to view the comments.</noscript>
-        </div>
-    </div>
 
 
 
@@ -195,19 +200,22 @@
 
     <div id="nav-footer" style="display: none">
       <ul>
-         
+        
           <li><a href="/">Home</a></li>
-         
+        
           <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
         
       </ul>
     </div>
 
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Celery%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Celery简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%88%B0Django"><span class="toc-number">1.2.</span> <span class="toc-text">集成到Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Celery-worker"><span class="toc-number">1.3.</span> <span class="toc-text">启动Celery worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">调用异步任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
-    </div>
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Celery%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Celery简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%88%B0Django"><span class="toc-number">1.2.</span> <span class="toc-text">集成到Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Celery-worker"><span class="toc-number">1.3.</span> <span class="toc-text">启动Celery worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">调用异步任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      </div>
+    
 
     <div id="share-footer" style="display: none">
       <ul>
@@ -215,7 +223,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&text=Celery routing tasks"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&is_video=false&description=Celery routing tasks"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Celery routing tasks&body=Check out this article: https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Celery routing tasks&body=Check out this article: https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://xujianfei9527.github.io/2020/11/20/Celery-routing-task/&title=Celery routing tasks"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
@@ -227,10 +235,12 @@
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -242,19 +252,19 @@
     Copyright &copy;
     
     
-    2019-2024
+    2016-2024
     Xujianfei
   </div>
   <div class="footer-right">
     <nav>
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/search/">Search</a></li>
-        
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     -->
       </ul>
     </nav>
   </div>
@@ -263,30 +273,29 @@
     </div>
     <!-- styles -->
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
 
 
     <!-- jquery -->
 
-<script src="/lib/jquery/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
 
 <!-- clipboard -->
 
   
-<script src="/lib/clipboard/clipboard.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
     // mount it!
     $(".highlight table").before(btn);
     var clip = new ClipboardJS('.btn-copy', {
@@ -306,36 +315,13 @@
 
 <!-- search -->
 
-<!-- Google Analytics -->
-
 <!-- Baidu Analytics -->
 
-  <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?9e3af248ffc71162616ff0fcd5fb275e";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-
-<!-- Umami Analytics -->
+<!-- Cloudflare Analytics -->
 
 <!-- Disqus Comments -->
 
-    <script type="text/javascript">
-        var disqus_shortname = 'xujf';
-
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
-    </script>
-
+<!-- utterances Comments -->
 
 </body>
 </html>
