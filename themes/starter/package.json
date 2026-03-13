@@ -1,0 +1,26 @@
+{
+  "name": "hexo-theme-starter",
+  "version": "1.0.0",
+  "description": "一个简洁的 Hexo 主题，支持博客和分级文档",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "blog",
+    "documentation",
+    "minimal"
+  ],
+  "author": "",
+  "license": "MIT",
+  "hexo": {
+    "version": ">=6.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

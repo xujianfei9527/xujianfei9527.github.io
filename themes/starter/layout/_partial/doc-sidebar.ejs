@@ -1,0 +1,71 @@
+<aside class="doc-sidebar">
+  <div class="doc-sidebar-wrapper">
+    <h2 class="doc-sidebar-title">文档</h2>
+    
+    <%
+      // 优先使用配置的 docs，否则自动扫描
+      const docs = (theme.docs && theme.docs.length) ? theme.docs : getDocsTree();
+    %>
+    
+    <% if (docs && docs.length) { %>
+      <nav class="doc-tree">
+        <% 
+          const currentPath = page.path || '';
+          
+          function renderItem(item, level) {
+            const hasChildren = item.children && item.children.length > 0;
+            const isActive = item.path && currentPath.includes(item.path);
+            
+            // 检查子项是否有激活的
+            let hasActiveChild = false;
+            if (hasChildren) {
+              const checkActive = (items) => {
+                for (const child of items) {
+                  if (child.path && currentPath.includes(child.path)) return true;
+                  if (child.children && checkActive(child.children)) return true;
+                }
+                return false;
+              };
+              hasActiveChild = checkActive(item.children);
+            }
+            
+            const isOpen = isActive || hasActiveChild;
+        %>
+          <div class="tree-item" style="padding-left: <%= level * 16 %>px">
+            <div class="tree-row <%= isActive ? 'active' : '' %>">
+              <% if (hasChildren) { %>
+                <span class="tree-arrow <%= isOpen ? 'open' : '' %>">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M6 4l4 4-4 4V4z"/>
+                  </svg>
+                </span>
+              <% } else { %>
+                <span class="tree-arrow-placeholder"></span>
+              <% } %>
+              
+              <% if (item.path) { %>
+                <a href="<%- url_for(item.path) %>" class="tree-label"><%= item.title %></a>
+              <% } else { %>
+                <span class="tree-label tree-folder"><%= item.title %></span>
+              <% } %>
+            </div>
+            
+            <% if (hasChildren) { %>
+              <div class="tree-children <%= isOpen ? 'open' : '' %>">
+                <% item.children.forEach(function(child) { %>
+                  <%- renderItem(child, level + 1) %>
+                <% }); %>
+              </div>
+            <% } %>
+          </div>
+        <% } %>
+        
+        <% docs.forEach(function(item) { %>
+          <%- renderItem(item, 0) %>
+        <% }); %>
+      </nav>
+    <% } else { %>
+      <p class="doc-sidebar-empty">请在主题配置中设置文档目录</p>
+    <% } %>
+  </div>
+</aside>
